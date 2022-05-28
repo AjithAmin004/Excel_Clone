@@ -1,17 +1,38 @@
-let cellsContent = document.querySelector(".cells-content");
+let topRow = document.querySelector('.top-row');
+let leftCol = document.querySelector('.left-col');
+let topleft = document.querySelector(".top-left-cell");
+
+cellsContentDiv.addEventListener('scroll',function(e){
+    let scrollFromTop = e.target.scrollTop;
+    let scrollFromLeft = e.target.scrollLeft;
+
+    topRow.style.top = scrollFromTop+"px";
+    leftCol.style.left = scrollFromLeft+"px";
+    topleft.style.top = scrollFromTop+"px";
+    topleft.style.left = scrollFromLeft+"px";
+  //  console.log(topleft)
+    
+})
 
 
-function initCells(){
-    let cell = "<div></div>";
+let db=[];
+
+function createDb(){
     for(let i=0;i<100;i++){
-        cell+="<div class = 'row'>";
-        //column
+        let row = [];
         for(let j=0;j<26;j++){
-            cell+="<div class = 'cell'>CELL</div>"
+            let name = String.fromCharCode(65+j)+(i+1)+"";
+            let value = "";
+            let obj = {
+                name:name,
+                value:value
+            }
+           row.push(obj);
         }
-        cell+="</div>"
+        db.push(row);
     }
-    cellsContent.innerHTML = cell;
 }
 
-initCells();
+
+createDb();
+console.log(db);
