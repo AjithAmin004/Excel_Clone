@@ -24,7 +24,7 @@ function initCells(){
         cellsContent+="<div class = 'row'>";
         //column
         for(let j=0;j<26;j++){
-            cellsContent+="<div class = 'cell' contentEditable></div>"
+            cellsContent+=`<div class = 'cell' rowid='${i}' colid='${j}' contentEditable></div>`
         }
         cellsContent+="</div>"
     }
@@ -33,3 +33,25 @@ function initCells(){
 }
 
 initCells();
+
+let db=[];
+
+function createDb(){
+    for(let i=0;i<100;i++){
+        let row = [];
+        for(let j=0;j<26;j++){
+            let name = String.fromCharCode(65+j)+(i+1)+"";
+            let value = "";
+            let obj = {
+                name:name,
+                value:value
+            }
+           row.push(obj);
+        }
+        db.push(row);
+    }
+}
+
+
+createDb();
+console.log(db);

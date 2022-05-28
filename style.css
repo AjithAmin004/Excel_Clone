@@ -85,6 +85,10 @@
     left:30px;
 }
 
+#address{
+    width:60px;
+    text-align: center;
+}
 
 /* Day 1 we did ui
 Day 2 we did scroll ,db creation*/

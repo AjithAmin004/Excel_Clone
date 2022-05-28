@@ -1,6 +1,8 @@
 let topRow = document.querySelector('.top-row');
 let leftCol = document.querySelector('.left-col');
 let topleft = document.querySelector(".top-left-cell");
+let cells = document.querySelectorAll('.cell');
+let addressInput = document.querySelector('#address'); 
 
 cellsContentDiv.addEventListener('scroll',function(e){
     let scrollFromTop = e.target.scrollTop;
@@ -14,25 +16,13 @@ cellsContentDiv.addEventListener('scroll',function(e){
     
 })
 
-
-let db=[];
-
-function createDb(){
-    for(let i=0;i<100;i++){
-        let row = [];
-        for(let j=0;j<26;j++){
-            let name = String.fromCharCode(65+j)+(i+1)+"";
-            let value = "";
-            let obj = {
-                name:name,
-                value:value
-            }
-           row.push(obj);
-        }
-        db.push(row);
-    }
+for(let i=0;i<cells.length;i++){
+    cells[i].addEventListener('click',function(e){
+        let rowId = Number(e.target.getAttribute("rowid"));
+        let colId = Number(e.target.getAttribute("colid"));
+        let address = String.fromCharCode(65+colId)+(rowId+1)+"";
+        console.log(address);
+        addressInput.value = address;
+    })
 }
 
-
-createDb();
-console.log(db);
