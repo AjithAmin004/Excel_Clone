@@ -44,7 +44,8 @@ function createDb(){
             let value = "";
             let obj = {
                 name:name,
-                value:value
+                value:value,
+                formula:""
             }
            row.push(obj);
         }
